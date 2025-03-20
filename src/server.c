@@ -1,7 +1,5 @@
 #include <../include/socket.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #define PORT 8069
 
@@ -17,8 +15,6 @@ int main() {
         char input[1024];
         printf("Enter data to send: ");
         if (fgets(input, sizeof(input), stdin) != NULL) {
-            // Remove newline character from input
-            input[strcspn(input, "\n")] = '\0';
             sendData(input);
             printf("Data sent: %s\n", input);
         }
