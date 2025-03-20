@@ -1,2 +1,2 @@
-# rpi-socket
-socket test
+# wemos-socket
+socket tussen RPiB en de wemos devices
