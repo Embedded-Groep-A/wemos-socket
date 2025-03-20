@@ -7,9 +7,12 @@ int main() {
     hostSocket(PORT);
     while (1)
     {
+        char input = scanf("%c", &input);
+        sendData(&input);
+        printf("Data sent: %c\n", input);
+
         char *data = listenForData();
-        if (data != NULL)
-        {
+        if (data != NULL) {
             printf("Data received: %s\n", data);
         }
     }
