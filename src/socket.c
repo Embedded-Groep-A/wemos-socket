@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <fcntl.h>
 #include <../include/socket.h>
 
 #define BACKLOG 10
@@ -56,7 +57,8 @@ void hostSocket(int port) {
         close(server_fd);
         exit(EXIT_FAILURE);
     }
-
+    int flags = fcntl(new_socket, F_GETFL, 0);
+    fcntl(new_socket, F_SETFL, flags | O_NONBLOCK);
     printf("Connection accepted\n");
 
     
